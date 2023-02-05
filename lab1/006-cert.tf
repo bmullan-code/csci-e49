@@ -6,7 +6,7 @@ resource "tls_private_key" "rsa-private-key" {
 }
 
 resource "tls_self_signed_cert" "cert" {
-  # private_key_pem = file("private_key.pem")
+  
   private_key_pem   = "${tls_private_key.rsa-private-key.private_key_pem}"
 
   subject {
@@ -17,7 +17,7 @@ resource "tls_self_signed_cert" "cert" {
     common_name  = "cscie49-mullan"
     
   }
-  validity_period_hours = 12
+  validity_period_hours = 48
 
   allowed_uses = [
     "key_encipherment",
@@ -26,16 +26,6 @@ resource "tls_self_signed_cert" "cert" {
   ]
 
 }
-
-#resource "local_file" "private_key" {
-#  content  = "${tls_private_key.rsa-private-key.private_key_pem}"
-#  filename = "privateKey.key"
-#}
-
-#resource "local_file" "cert" {
-#  content  = "${tls_self_signed_cert.cert.cert_pem}"
-#  filename = "certificate.crt"
-#}
 
 resource "aws_iam_server_certificate" "cert" {
   name             = tls_self_signed_cert.cert.subject[0].common_name

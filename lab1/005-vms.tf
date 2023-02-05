@@ -25,7 +25,7 @@ resource "aws_instance" "webserver1" {
   }
 
   tags = {
-    Name = "barrymullan_lab1_webserver1"
+    Name = "${var.prefix}-barrymullan-lab1-webserver1"
   }
 
   user_data = <<EOF
@@ -56,7 +56,7 @@ resource "aws_instance" "webserver2" {
   }
 
   tags = {
-    Name = "barrymullan_lab1_webserver2"
+    Name = "${var.prefix}-barrymullan-lab1-webserver2"
   }
 
   user_data = <<EOF

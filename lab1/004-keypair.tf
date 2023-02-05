@@ -4,6 +4,6 @@ resource "tls_private_key" "example" {
 }
 
 resource "aws_key_pair" "my-key-pair" {
-  key_name   = "csci-e49-key-pair"
+  key_name   = "${var.prefix}-csci-e49-key-pair"
   public_key = tls_private_key.example.public_key_openssh
 }

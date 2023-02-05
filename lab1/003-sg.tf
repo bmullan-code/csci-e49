@@ -1,5 +1,5 @@
 resource "aws_security_group" "securitygroup_web_linux" {
-  name        = "securitygroup_web_linux"
+  name        = "${var.prefix}-securitygroup-web-linux"
   description = "securitygroup_web_linux"
   vpc_id      = aws_vpc.main.id
 
@@ -38,7 +38,7 @@ resource "aws_security_group" "securitygroup_web_linux" {
 
 
 resource "aws_security_group" "securitygroup_alb" {
-  name        = "securitygroup_alb"
+  name        = "${var.prefix}-securitygroup-alb"
   description = "securitygroup_alb"
   vpc_id      = aws_vpc.main.id
 
