@@ -20,5 +20,5 @@ variable "subnet2_cidr" {
 
 variable "prefix" {
     type = string
-    default = "lab1"
+    default = "lab2"
 }

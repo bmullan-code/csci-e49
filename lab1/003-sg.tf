@@ -36,7 +36,6 @@ resource "aws_security_group" "securitygroup_web_linux" {
 
 }
 
-
 resource "aws_security_group" "securitygroup_alb" {
   name        = "${var.prefix}-securitygroup-alb"
   description = "securitygroup_alb"
