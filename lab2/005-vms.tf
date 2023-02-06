@@ -51,5 +51,16 @@ wget https://cscie49-rameshnagappan.s3.amazonaws.com/Dockerfile
 chmod +rx Dockerfile
 cp Dockerfile /home/ec2-user
 cp index.html /home/ec2-user
+
+sudo yum update -y
+sudo amazon-linux-extras install docker -y
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+docker info
+cd /home/ec2-user
+docker build -t lab2docker .
+docker images --filter reference=lab2docker
+docker run -t -d -p 80:80 lab2docker:latest
+
 EOF
 }
