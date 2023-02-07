@@ -22,3 +22,8 @@ variable "prefix" {
     type = string
     default = "lab1"
 }
+
+variable "bucket_name" {
+    type = string
+    default = "cscie49-terraform-state-bucket"
+}
