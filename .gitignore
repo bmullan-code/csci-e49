@@ -3,8 +3,8 @@ env.sh
 env.ps1
 bmullan_accessKeys.csv
 terraform.exe
-test
 
+**/*.pem
 **/*.hcl
 **/.terraform/*
 
