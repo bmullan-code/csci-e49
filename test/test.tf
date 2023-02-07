@@ -50,11 +50,11 @@ resource "tls_self_signed_cert" "cert" {
 
 
 resource "aws_iam_server_certificate" "cert" {
-  name             = tls_self_signed_cert.cert.subject[0].common_name
+  name             = "${var.prefix}-${tls_self_signed_cert.cert.subject[0].common_name}"
   certificate_body = "${tls_self_signed_cert.cert.cert_pem}"
   private_key      = "${tls_private_key.example.private_key_pem}"
   
-  #lifecycle {
-  #  create_before_destroy = true
-  #}
+  lifecycle {
+   create_before_destroy = true
+  }
 }
