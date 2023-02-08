@@ -1,7 +1,3 @@
-data "aws_iam_server_certificate" "my-domain" {
-  name_prefix      = "${var.prefix}-${tls_self_signed_cert.cert.subject[0].common_name}"
-  latest      = true
-}
 
 resource "aws_lb" "alb" {  
   name            = "${var.prefix}-alb"  
@@ -17,7 +13,6 @@ resource "aws_lb_listener" "alb_listener" {
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn = aws_iam_server_certificate.cert.arn
-  # certificate_arn = data.aws_iam_server_certificate.my-domain.cert.arn
   
   default_action {    
     target_group_arn = aws_lb_target_group.alb_target_group.arn
