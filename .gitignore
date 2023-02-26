@@ -4,6 +4,7 @@ env.ps1
 bmullan_accessKeys.csv
 terraform.exe
 
+**/kubeadmin_accessKeys.csv
 **/*.pem
 **/*.hcl
 **/.terraform/*
