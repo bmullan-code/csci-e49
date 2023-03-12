@@ -20,7 +20,7 @@ variable "subnet2_cidr" {
 
 variable "prefix" {
     type = string
-    default = "credit1"
+    default = "lab3"
 }
 
 variable "bucket_name" {
@@ -28,7 +28,7 @@ variable "bucket_name" {
     default = "cscie49-terraform-state-bucket"
 }
 
-variable "cluster_name" {
+variable "db_password" {
     type = string
-    default = "credit1-eks-dev-cluster"
+    default = "Password123"
 }

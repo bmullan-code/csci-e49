@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "cscie49-terraform-state-bucket"
-    key    = "credit1"
+    key    = "lab1"
     region = "us-east-1"
   }
 }
@@ -16,9 +16,3 @@ terraform {
 provider "aws" {
   region = "${var.region}"
 }
-
-
-
-# locals {
-#   cluster_name = "education-eks-${random_string.suffix.result}"
-# }

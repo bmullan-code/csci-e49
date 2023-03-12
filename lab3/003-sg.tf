@@ -1,8 +1,10 @@
+###
+### Create the security group with firewall rules
+###
 resource "aws_security_group" "securitygroup_web_linux" {
   name        = "${var.prefix}-securitygroup-web-linux"
   description = "securitygroup_web_linux"
-  vpc_id = module.vpc.vpc_id
-  # vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.main.id
 
   ingress {
     description      = "ssh"
@@ -24,6 +26,14 @@ resource "aws_security_group" "securitygroup_web_linux" {
     description      = "https"
     to_port          = 443
     from_port        = 443
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"] 
+  }
+
+ingress {
+    description      = "rds"
+    to_port          = 3306
+    from_port        = 3306
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"] 
   }

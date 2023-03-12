@@ -14,7 +14,8 @@ resource "aws_instance" "kubecluster-ec2" {
   ami = "${data.aws_ami.amazon-linux-2.id}"
   instance_type = "t2.micro"
   key_name = aws_key_pair.my-key-pair.key_name
-  subnet_id = aws_subnet.subnet1.id
+  subnet_id = module.vpc.private_subnets[0].id
+  # subnet_id = aws_subnet.subnet1.id
   associate_public_ip_address = true
   security_groups = [ aws_security_group.securitygroup_web_linux.id ]
   
