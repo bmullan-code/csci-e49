@@ -11,11 +11,6 @@ data "aws_ami" "openvpn" {
 
 resource "aws_instance" "webserver1" {
 
-  # depends on rds instance being created first
-  depends_on = [
-    local_file.dbinfo
-  ]
-
   ami = "${data.aws_ami.openvpn.id}"
   instance_type = "t2.small"
   key_name = aws_key_pair.my-key-pair.key_name

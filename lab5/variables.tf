@@ -20,7 +20,7 @@ variable "subnet2_cidr" {
 
 variable "prefix" {
     type = string
-    default = "lab3"
+    default = "lab5"
 }
 
 variable "bucket_name" {
