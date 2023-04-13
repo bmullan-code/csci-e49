@@ -30,11 +30,19 @@ resource "aws_security_group" "securitygroup_web_linux" {
     cidr_blocks      = ["0.0.0.0/0"] 
   }
 
-ingress {
-    description      = "rds"
-    to_port          = 3306
-    from_port        = 3306
+  ingress {
+    description      = "custom vpn"
+    to_port          = 943
+    from_port        = 0
     protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"] 
+  }
+
+  ingress {
+    description      = "custom udp"
+    to_port          = 1194
+    from_port        = 0
+    protocol         = "udp"
     cidr_blocks      = ["0.0.0.0/0"] 
   }
 
